@@ -16,9 +16,9 @@ app = FastAPI()
 app.mount("/images", StaticFiles(directory="images"), name="images")
 
 def get_images(mypath):
-    dcmfiles= []
+    dcmimages= []
     for dcm in [f for f in listdir(mypath) if isfile(join(mypath, f))]:
-        dcmfiles.append(dcmread(f"{mypath}/{dcm}"))
+        dcmimages.append(dcmread(f"{mypath}/{dcm}"))
 
     for dcm in dcmimages:
         # Extract the pixel data
